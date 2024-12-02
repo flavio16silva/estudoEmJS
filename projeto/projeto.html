@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edificio Opala</title>
+    <link rel="stylesheet" href="projeto.css">
 </head>
 <body>
-    <h1>Edificio Opala</h1>
+    <div class="container">
+        <div class="form-header">
+            <h1>Edifício Opala</h1>
+        </div>
+    
 
-    <form action="">
-        <h3>Identificação da reunião</h3>
-        <label for="titulo">Titulo da ATA:</label>
-        <input type="text" name="titulo" id="titulo" required/>
+        <form action="">
+            <h3>Identificação da reunião</h3>
+            <label for="titulo">Titulo da ATA:</label>
+            <input type="text" name="titulo" id="titulo" required/>
 
-        <label for="data">Data</label>
-        <input type="date" name="data" id="data" required/>
+            <label for="data">Data</label>
+            <input type="date" name="data" id="data" required/>
 
-        <label for="horasI">Horário de Inicio</label>
-        <input type="time" name="horasI" id="horasI" required/>
+            <label for="horasI">Horário de Inicio</label>
+            <input type="time" name="horasI" id="horasI" required/>
 
-        <label for="horasT">Horário de Término</label>
-        <input type="time" name="horasT" id="horasT" required/>
+            <label for="horasT">Horário de Término</label>
+            <input type="time" name="horasT" id="horasT" required/>
 
-        <label for="local">Local</label>
-        <input type="text" name="local" id="local" required/>
+            <label for="local">Local</label>
+            <input type="text" name="local" id="local" required/>
 
-        <h3>Participantes</h3>
-        <label for="presidente">Presidente da Reunião</label>
-        <input type="text" name="presidente" id="presidente" required/>
+            <h3>Participantes</h3>
+            <label for="presidente">Presidente da Reunião</label>
+            <input type="text" name="presidente" id="presidente" required/>
 
-        <h3>Secretário</h3>
-        <label for="secretario">Secretário</label>
-        <input type="text" name="secretario" id="secretario" required/>
+            <h3>Secretário</h3>
+            <label for="secretario">Secretário</label>
+            <input type="text" name="secretario" id="secretario" required/>
 
-        <label for="participantes">Lista de Participantes</label>
-        <textarea name="participantes" id="participantes">Participantes</textarea>
+            <label for="participantes">Lista de Participantes</label>
+            <textarea name="participantes" id="participantes">Participantes</textarea>
 
-        <h3>Ordem do Dia</h3>
-        <label for="pauta">Pauta</label>
-        <textarea name="pauta" id="pauta"></textarea>
+            <h3>Ordem do Dia</h3>
+            <label for="pauta">Pauta</label>
+            <textarea name="pauta" id="pauta"></textarea>
 
-        <h3>Discussões e Decisões</h3>
-        <label for="discussoes" >Resumo das Discussões:</label>
-        <textarea name="discussoes" id="discussoes"></textarea>
+            <h3>Discussões e Decisões</h3>
+            <label for="discussoes" >Resumo das Discussões:</label>
+            <textarea name="discussoes" id="discussoes"></textarea>
 
-        <label for="deliberacoes" >Deliberações:</label>
-        <textarea name="deliberacoes" id="deliberacoes" required></textarea>
+            <label for="deliberacoes" >Deliberações:</label>
+            <textarea name="deliberacoes" id="deliberacoes" required></textarea>
 
-        <h3>Observações</h3>
-        <label for="observacoes">Anotações adicionais</label>
-        <textarea name="observacoes" id="observacoes"></textarea>
+            <h3>Observações</h3>
+            <label for="observacoes">Anotações adicionais</label>
+            <textarea name="observacoes" id="observacoes"></textarea>
 
-        <h3>Encerramento</h3>
-        <label for="encerramento" >Data do Encerramento:</label>
-        <input type="date" name="data_encerramento" id="encerramento" />
+            <h3>Encerramento</h3>
+            <label for="encerramento" >Data do Encerramento:</label>
+            <input type="date" name="data_encerramento" id="encerramento" />
 
-        <label for="horaE" >Horário do Encerramento:</label>
-        <input type="time" name="horario_encerramento" id="horaE" />
+            <label for="horaE" >Horário do Encerramento:</label>
+            <input type="time" name="horario_encerramento" id="horaE" />
 
-        <label for="signature-pad" >Assinaturas:</label>
-        <!-- Campo para assinatura digital -->
-        <canvas id="signature-pad" style="border: 1px solid #000;"></canvas>
-        <button type="button" id="clear-signature">Limpar Assinatura</button>
+            <label for="signature-pad" >Assinaturas:</label>
+            <!-- Campo para assinatura digital -->
+            <canvas id="signature-pad" style="border: 1px solid #000;"></canvas>
+            <button type="button" id="clear-signature">Limpar Assinatura</button>
 
-        <button type="submit">Salvar Ata</button>
-    </form>
+            <button type="submit">Salvar Ata</button>
+        </form>
+    </div>
 
 
 
