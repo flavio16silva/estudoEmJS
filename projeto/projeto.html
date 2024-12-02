@@ -3,15 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto</title>
+    <title>Edificio Opala</title>
 </head>
 <body>
-    <h1>Projeto</h1>
+    <h1>Edificio Opala</h1>
 
-    <input type="text" onmouseleave="sair()"  class="digitar">
+    <form action="">
+        <h3>Identificação da reunião</h3>
+        <label for="titulo">Titulo da ATA:</label>
+        <input type="text" name="titulo" id="titulo" required/>
+
+        <label for="data">Data</label>
+        <input type="date" name="data" id="data" required/>
+
+        <label for="horasI">Horário de Inicio</label>
+        <input type="time" name="horasI" id="horasI" required/>
+
+        <label for="horasT">Horário de Término</label>
+        <input type="time" name="horasT" id="horasT" required/>
+
+        <label for="local">Local</label>
+        <input type="text" name="local" id="local" required/>
+
+        <h3>Participantes</h3>
+        <label for="presidente">Presidente da Reunião</label>
+        <input type="text" name="presidente" id="presidente" required/>
+
+        <h3>Secretário</h3>
+        <label for="secretario">Secretário</label>
+        <input type="text" name="secretario" id="secretario" required/>
+
+        <label for="participantes">Lista de Participantes</label>
+        <textarea name="participantes" id="participantes">Participantes</textarea>
+
+        <h3>Ordem do Dia</h3>
+        <label for="pauta">Pauta</label>
+        <textarea name="pauta" id="pauta"></textarea>
+
+        <h3>Discussões e Decisões</h3>
+        <label for="discussoes" >Resumo das Discussões:</label>
+        <textarea name="discussoes" id="discussoes"></textarea>
+
+        <label for="deliberacoes" >Deliberações:</label>
+        <textarea name="deliberacoes" id="deliberacoes" required></textarea>
+
+        <h3>Observações</h3>
+        <label for="observacoes">Anotações adicionais</label>
+        <textarea name="observacoes" id="observacoes"></textarea>
+
+        <h3>Encerramento</h3>
+        <label for="encerramento" >Data do Encerramento:</label>
+        <input type="date" name="data_encerramento" id="encerramento" />
+
+        <label for="horaE" >Horário do Encerramento:</label>
+        <input type="time" name="horario_encerramento" id="horaE" />
+
+        <label for="signature-pad" >Assinaturas:</label>
+        <!-- Campo para assinatura digital -->
+        <canvas id="signature-pad" style="border: 1px solid #000;"></canvas>
+        <button type="button" id="clear-signature">Limpar Assinatura</button>
+
+        <button type="submit">Salvar Ata</button>
+    </form>
+
+
+
+    <!-- <input type="text" onmouseleave="sair()"  class="digitar">
     <button onclick="clicar();">Clique aqui</button>
 
-    <div class="clicar"></div>
+    <div class="clicar"></div> -->
 
 
     <script src="projeto.js"></script>
