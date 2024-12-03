@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,12 +63,16 @@
             <label for="horaE" >Horário do Encerramento:</label>
             <input type="time" name="horario_encerramento" id="horaE" />
 
-            <label for="signature-pad" >Assinaturas:</label>
-            <!-- Campo para assinatura digital -->
-            <canvas id="signature-pad" style="border: 1px solid #000;"></canvas><br>
-            <button type="button" id="clear-signature">Limpar Assinatura</button>
-
-            <button type="submit">Salvar Ata</button>
+            <div class="signature-container">
+                <label for="signature-pad" >Assinaturas:</label>
+                <!-- Campo para assinatura digital -->
+                <canvas id="signature-pad" style="border: 1px solid #000;"></canvas><br>
+                 <div class="button-row">
+                     <button type="button" id="clear-signature">Limpar Assinatura</button>
+                     <button type="submit">Salvar Ata</button>
+                 </div>
+            </div>
+            
         </form>
     </div>
 
