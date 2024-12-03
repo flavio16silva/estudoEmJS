@@ -96,12 +96,38 @@ input, textarea {
     
 }
 
-#data, #horasI, #horasT {
+#data, #horasI, #horasT{
     width: 30%;   
 }
 
 textarea {
     resize: vertical;
+}
+
+/* Encerramento - input e label */
+.final {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.final label {
+    width: auto;
+    margin-right: 5px;    
+    text-align: justify;
+}
+
+.final input {
+    flex: 1;
+    min-width: 120px;  
+    max-width: calc(33.33% - 10px);  
+}
+
+#encerramento, #horaE {
+    width: 30%;   
 }
 
 /* Assinatura */
@@ -167,6 +193,18 @@ button:hover,
         flex: 1;   
     }
 
+    .final {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .final label,
+    .final input {
+        width: auto;
+    }
+
 }
 
 @media (max-width: 767px){
@@ -180,9 +218,16 @@ button:hover,
         width:100%;
         /* margin: 5px 0; */
     }
-    /* #data, #horasI, #horasT {
-        width: 100%;   
-    } */
+    
+    .final {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .final label,
+    .final input {
+        width: auto;
+    }
 }
 
 @media (max-width: 320px) {
