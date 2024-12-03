@@ -48,7 +48,7 @@ h1 {
 
 /* Corpo do Formulário */
 form {
-    width: 100%;
+    width: 100%; 
 }
 
 h3 {
@@ -72,6 +72,32 @@ input, textarea {
     border-radius: 5px;
     border: 2px solid #cfcfcf;
     box-sizing: border-box;
+}
+/* Div dos inputs data, hora inicio e termino */
+.tempo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tempo label {
+    width: auto;
+    margin-right: -5px;
+    margin-left: -1px;
+    text-align:justify;
+}
+
+.tempo input {
+    flex: 1;
+    min-width: 120px;
+    
+}
+
+#data, #horasI, #horasT {
+    width: 30%;   
 }
 
 textarea {
@@ -124,6 +150,40 @@ button:hover,
 }
 
 /* Ajuste para telas pequenas */
+@media (min-width: 768px){
+    .tempo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tempo label,
+    .tempo input {
+        width: auto;
+    }
+    #data, #horasI, #horasT {
+        flex: 1;   
+    }
+
+}
+
+@media (max-width: 767px){
+    .tempo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tempo label,
+    .tempo input {
+        width:100%;
+        /* margin: 5px 0; */
+    }
+    /* #data, #horasI, #horasT {
+        width: 100%;   
+    } */
+}
+
 @media (max-width: 320px) {
     #signature-pad {
         width: 100%; /* Mantém responsivo */
