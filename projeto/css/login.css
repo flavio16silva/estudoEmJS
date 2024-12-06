@@ -1,4 +1,13 @@
+html, body {
+    height: 100%;
+}
+
 .form-container {
-    width: 350px;
+    max-width: 350px;
     padding: 1rem;
 }
+
+.custom-success:checked {
+    background-color: var(--bs-success); /* Fundo verde */
+    border-color: var(--bs-success);    /* Borda verde */
+  }
