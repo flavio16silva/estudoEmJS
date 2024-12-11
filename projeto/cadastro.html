@@ -10,41 +10,50 @@
     <link rel="stylesheet" href="css/cadastro.css">
 
 </head>
-<body>
-    <h1>Tela de Cadastro</h1>
+<body class="bg-dark">
+    <h1 class="text-white">Tela de Cadastro</h1>
 
-    <h3>Favor preencher os dados abaixo</h3>
+    <h3 class="text-white">Favor preencher os dados abaixo</h3>
 
     <form action="" id="form">
+        <div class="form-floating mb-3">
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo">
+            <label for="nome">Nome Completo</label>
+        </div>    
 
-        <label for="nome">Nome Completo</label>
-        <input type="text" name="nome" id="nome">
-
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <div class="form-floating mb-3">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+            <label for="email">Email</label>
+        </div>
     
-        <div class="espaco">
-            <label for="fone">Telefone</label>
-            <input type="tel" name="fone" id="fone" placeholder="(XX) XXXXX-XXXX" >
+        <div class="espaco ">
+            <div class="form-floating mb-3">
+                <input type="tel" name="fone" id="fone" class="form-control" placeholder="Telefone">
+                <label for="fone">Telefone</label>
+            </div>
 
-            <label for="select">AP</label>
-            <select name="select" id="select">
-                <option value="">Selecione o apartamento</option>
-                <option value="102">102</option>
-                <option value="104">104</option>
-                <option value="202">202</option>
-                <option value="204">204</option>
-                <option value="205">205</option>
-                <option value="206">206</option>
-                <option value="302">302</option>
-                <option value="304">304</option>
-                <option value="305">305</option>
-                <option value="306">306</option>    
-            </select>       
+            <div class="form-floating mb-3">
+                <select name="select" id="select" class="form-control">
+                    <option value="">Selecione o apartamento</option>
+                    <option value="102">102</option>
+                    <option value="104">104</option>
+                    <option value="202">202</option>
+                    <option value="204">204</option>
+                    <option value="205">205</option>
+                    <option value="206">206</option>
+                    <option value="302">302</option>
+                    <option value="304">304</option>
+                    <option value="305">305</option>
+                    <option value="306">306</option>    
+                </select>
+                <label for="select" class="text-white">AP</label>
+            </div>
         </div>
         
-        <label for="password">Digite sua senha</label>
-        <input type="password" name="password" id="password">
+        <div class="form-floating mb-3">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
+            <label for="password">Digite sua senha</label>
+        </div>
 
         <!-- <input type="number" name="ap" id="ap" > -->
 
