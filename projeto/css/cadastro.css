@@ -7,9 +7,15 @@
 }
 
 /* corpo */
-body {
+html, body {
     padding: 1rem;
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-container {
+    max-width: 350px;
+    padding: 1rem;
 }
 
 h1, h3 {
@@ -17,14 +23,14 @@ h1, h3 {
 }
 
 /* formulario */
-form {
-    /* max-width: 500px; */
+/* form {
+    max-width: 450px;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 500px;
     margin: 0 auto;
-}
+} */
 
 label {
     font-weight: bold;
