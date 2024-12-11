@@ -9,6 +9,7 @@
 /* corpo */
 body {
     padding: 1rem;
+    height: 100%;
 }
 
 h1, h3 {
@@ -17,6 +18,7 @@ h1, h3 {
 
 /* formulario */
 form {
+    /* max-width: 500px; */
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -29,25 +31,24 @@ label {
     margin-bottom: 5px;
 }
 
-input {
-    width: 100%;
-    padding: 10px;
+/* Ajuste para os inputs do form-floating */
+.form-floating input {
+    padding: 1rem 0.75rem;  
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* Div para alinhar telefone e select */
 .espaco {
     display: flex;    
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
     gap: 10px;
 }
 
 /*input = telefone */
 #fone {
-    padding: 5px;
     gap: 5px;
 }
 
