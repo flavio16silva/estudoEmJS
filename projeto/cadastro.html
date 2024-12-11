@@ -10,49 +10,51 @@
     <link rel="stylesheet" href="css/cadastro.css">
 
 </head>
-<body class="bg-dark">
-    <h1 class="text-white">Tela de Cadastro</h1>
+<body class=" d-flex align-itens-center bg-dark">
 
-    <h3 class="text-white">Favor preencher os dados abaixo</h3>
+    <main class="w-100 m-auto form-container">
+        <h1 class="text-white">Tela de Cadastro</h1>
 
-    <form action="" id="form">
-        <div class="form-floating mb-3">
-            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo">
-            <label for="nome">Nome Completo</label>
-        </div>    
+        <h3 class="text-white">Preencher os dados:</h3>
 
-        <div class="form-floating mb-3">
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-            <label for="email">Email</label>
-        </div>
-    
-        <div class="espaco ">
+        <form action="" id="form">
             <div class="form-floating mb-3">
-                <input type="tel" name="fone" id="fone" class="form-control" placeholder="Telefone">
-                <label for="fone">Telefone</label>
-            </div>
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo">
+                <label for="nome">Nome Completo</label>
+            </div>    
 
             <div class="form-floating mb-3">
-                <input type="text" name="ap" id="ap" class="form-control" placeholder="Nº do apartamento">
-                <label for="ap">AP</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <label for="email">Email</label>
             </div>
-        </div>
-
         
-        
-        <div class="form-floating mb-3">
-            <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
-            <label for="password">Digite sua senha</label>
-        </div>
+            <div class="espaco ">
+                <div class="form-floating mb-3">
+                    <input type="tel" name="fone" id="fone" class="form-control" placeholder="Telefone">
+                    <label for="fone">Telefone</label>
+                </div>
 
-        <!-- <input type="number" name="ap" id="ap" > -->
+                <div class="form-floating mb-3">
+                    <input type="text" name="ap" id="ap" class="form-control" placeholder="Nº do apartamento">
+                    <label for="ap">AP</label>
+                </div>
+            </div>
+
+            
+            
+            <div class="form-floating mb-3">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
+                <label for="password">Digite sua senha</label>
+            </div>
+
+            <!-- <input type="number" name="ap" id="ap" > -->
 
 
-        <button class="btn btn-success" type="submit">Enviar</button>
+            <button class="btn btn-success" type="submit">Enviar</button>
 
 
-    </form>
-
+        </form>
+    </main>
     <script src="js/cadastro.js"></script>
     
 </body>
