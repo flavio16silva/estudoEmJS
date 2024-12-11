@@ -85,3 +85,24 @@ telefoneInput.addEventListener('input', ()=> {
     }
     telefoneInput.value = valor  //atualiza o campo da mascara
 })
+
+
+//Função de buscar AP no select
+selectInput.addEventListener('input', ()=> {
+    const filter = selectInput.value.toLowerCase()
+    const options = selectInput.options
+
+    for(let i = 0; i < options.length; i++){
+        const option = options[i]
+        const text = option.text.toLowerCase()
+
+        //mostrar a primeira opção:
+        if(text.includes(filter) || i === 0){
+            option.style.display = ''
+        } else {
+            option.dtyle.display = 'none'
+        }
+    }
+
+})
+
