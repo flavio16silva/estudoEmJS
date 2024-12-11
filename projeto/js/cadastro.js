@@ -3,7 +3,7 @@ const form = document.querySelector('#form')
 const nameInput = document.querySelector('#nome')
 const emailInput = document.querySelector('#email')
 const telefoneInput = document.querySelector('#fone')
-const selectInput = document.querySelector('#select')
+const apInput = document.querySelector('#ap')
 const passInput = document.querySelector('#password')
 
 //console.log(selectInput)
@@ -38,8 +38,8 @@ form.addEventListener('submit', (event) => {
     }
 
     //verifica o select do apartamento
-    if(selectInput.value === ''){
-        alert('Selecione seu apartamento!')        
+    if(apInput.value === ''){
+        alert('Preencha com seu apartamento!')        
         return
     }
 
@@ -87,22 +87,4 @@ telefoneInput.addEventListener('input', ()=> {
 })
 
 
-//Função de buscar AP no select
-selectInput.addEventListener('input', ()=> {
-    const filter = selectInput.value.toLowerCase()
-    const options = selectInput.options
-
-    for(let i = 0; i < options.length; i++){
-        const option = options[i]
-        const text = option.text.toLowerCase()
-
-        //mostrar a primeira opção:
-        if(text.includes(filter) || i === 0){
-            option.style.display = ''
-        } else {
-            option.dtyle.display = 'none'
-        }
-    }
-
-})
 
