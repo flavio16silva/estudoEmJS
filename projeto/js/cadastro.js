@@ -3,8 +3,10 @@ const form = document.querySelector('#form')
 const nameInput = document.querySelector('#nome')
 const emailInput = document.querySelector('#email')
 const telefoneInput = document.querySelector('#fone')
-const apInput = document.querySelector('#ap')
+const selectInput = document.querySelector('#select')
 const passInput = document.querySelector('#password')
+
+console.log(selectInput)
 
 //Função
 form.addEventListener('submit', (event) => {
@@ -25,6 +27,12 @@ form.addEventListener('submit', (event) => {
     //verifica senha válida
     if(!validPassword(passInput.value, 8)){
         alert('Preencha com minimo 8 digitos!')        
+        return
+    }
+
+    //verifica o select do apartamento
+    if(selectInput.value === ''){
+        alert('Selecione seu apartamento!')        
         return
     }
 
