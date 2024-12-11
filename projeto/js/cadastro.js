@@ -4,6 +4,7 @@ const nameInput = document.querySelector('#nome')
 const emailInput = document.querySelector('#email')
 const telefoneInput = document.querySelector('#fone')
 const apInput = document.querySelector('#ap')
+const passInput = document.querySelector('#password')
 
 //Função
 form.addEventListener('submit', (event) => {
@@ -18,6 +19,12 @@ form.addEventListener('submit', (event) => {
     //verifica email é valido
     if(emailInput.value === '' || !isEmailValid(emailInput.value)){
         alert('Preencha com email válido!')        
+        return
+    }
+
+    //verifica senha válida
+    if(!validPassword(passInput.value, 8)){
+        alert('Preencha com minimo 8 digitos!')        
         return
     }
 
@@ -36,4 +43,12 @@ function isEmailValid(email){
         return true
     }
     return false
+}
+
+//Função de validar a senha
+function validPassword(pass, minDig){
+    if(pass.length >= minDig){
+        return true //senha valida
+    }
+    return false //senha invalida
 }
