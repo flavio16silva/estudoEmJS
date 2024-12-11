@@ -6,7 +6,7 @@ const telefoneInput = document.querySelector('#fone')
 const selectInput = document.querySelector('#select')
 const passInput = document.querySelector('#password')
 
-console.log(selectInput)
+//console.log(selectInput)
 
 //Função
 form.addEventListener('submit', (event) => {
@@ -24,9 +24,16 @@ form.addEventListener('submit', (event) => {
         return
     }
 
+    //verifica telefone é válido
+    let valor = telefoneInput.value.replace(/\D/g, '')
+    if(valor.length < 11){
+        alert('Informar número completo com DDD!')        
+        return
+    }
+
     //verifica senha válida
     if(!validPassword(passInput.value, 8)){
-        alert('Preencha com minimo 8 digitos!')        
+        alert('Preencha sua senha com minimo 8 digitos!')        
         return
     }
 
@@ -60,3 +67,21 @@ function validPassword(pass, minDig){
     }
     return false //senha invalida
 }
+
+//Função para validar o telefone
+telefoneInput.addEventListener('input', ()=> {
+    // Remove tudo que não é número
+    let valor = telefoneInput.value.replace(/\D/g, '')  
+    
+    // Aplica a máscara (XX) XXXXX-XXXX
+    if(valor.length > 10){
+        valor = valor.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2 - $3')
+    } else if (valor.length > 6){
+        valor = valor.replace(/^(\d{2})(\d{4})(\d+).*/, '($1) $2-$3')    
+    } else if (valor.length > 2){
+        valor = valor.replace(/^(\d{2})(\d+).*/, '($1) $2')
+    } else if (valor.length > 0){
+        valor = valor.replace(/^(\d+)/, '($1) ')
+    }
+    telefoneInput.value = valor  //atualiza o campo da mascara
+})
