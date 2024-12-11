@@ -33,7 +33,7 @@ label {
 
 /* Ajuste para os inputs do form-floating */
 .form-floating input {
-    padding: 1rem 0.75rem;  
+    /* padding: 1rem 0.75rem;   */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
@@ -62,3 +62,4 @@ button {
     font-size: 1.1rem;
     cursor: pointer;
 }
+
