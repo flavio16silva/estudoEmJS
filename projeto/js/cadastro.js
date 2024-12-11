@@ -31,17 +31,17 @@ form.addEventListener('submit', (event) => {
         return
     }
 
+    //verifica o select do apartamento
+    if(!validApartamento(apInput, event)){
+        return
+    }
+
     //verifica senha válida
     if(!validPassword(passInput.value, 8)){
         alert('Preencha sua senha com minimo 8 digitos!')        
         return
     }
 
-    //verifica o select do apartamento
-    if(apInput.value === ''){
-        alert('Preencha com seu apartamento!')        
-        return
-    }
 
     //Todos os campos preenchidos, envia o form
     form.submit()
@@ -85,6 +85,16 @@ telefoneInput.addEventListener('input', ()=> {
     }
     telefoneInput.value = valor  //atualiza o campo da mascara
 })
+
+//Função para validar o apartamento
+function validApartamento(apInput, e) {
+    if(isNaN(apInput.value) || apInput.value.trim() === ''){
+        alert('Preencha com seu apartamento!')  
+        e.preventDefault()      
+        return false
+    }
+    return true
+}
 
 
 
