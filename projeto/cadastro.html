@@ -13,7 +13,7 @@
 <body class=" d-flex align-itens-center bg-dark">
 
     <main class="w-100 m-auto form-container">
-        <h1 class="text-white">Tela de Cadastro</h1>
+        <h1 class="text-white">Cadastro</h1>
 
         <h3 class="text-white">Preencher os dados:</h3>
 
@@ -40,8 +40,19 @@
                 </div>
             </div>
 
-            
-            
+            <div class="form-floating mb-3 d-flex justify-content-center gap-4">
+                <!-- <label class="text-white">Tipo de Usuário</label> -->
+                <div>
+                    <input type="radio" id="morador" name="tipo" value="morador" checked>
+                    <label for="morador" class="text-white">Síndico</label>
+                </div>
+                <div>
+                    <input type="radio" id="sindico" name="tipo" value="sindico">
+                    <label for="sindico" class="text-white">Morador</label>
+                </div>
+            </div>
+                
+
             <div class="form-floating mb-3">
                 <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
                 <label for="password">Digite sua senha</label>
