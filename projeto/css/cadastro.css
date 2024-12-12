@@ -42,10 +42,6 @@ label {
     margin-bottom: 5px;
 }
 
-#showpassword {
-    margin-top: -5px;
-}
-
 /* Ajuste para os inputs do form-floating */
 .form-floating input {
     /* padding: 1rem 0.75rem;   */
