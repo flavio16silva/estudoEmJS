@@ -5,6 +5,7 @@ const emailInput = document.querySelector('#email')
 const telefoneInput = document.querySelector('#fone')
 const apInput = document.querySelector('#ap')
 const passInput = document.querySelector('#password')
+const showPasswordInput = document.querySelector('#showpassword')
 
 //console.log(selectInput)
 
@@ -41,11 +42,15 @@ form.addEventListener('submit', (event) => {
         alert('Preencha sua senha com minimo 8 digitos!')        
         return
     }
-
-
+    
+    
     //Todos os campos preenchidos, envia o form
     form.submit()
 })
+
+//verifica/mostra a senha digitada
+showPasswordInput.addEventListener('change', handleShowPassword);
+
 
 //Função que valida email
 function isEmailValid(email){
@@ -94,6 +99,11 @@ function validApartamento(apInput, e) {
         return false
     }
     return true
+}
+
+//Função do mostrar senha
+function handleShowPassword(){
+    passInput.type = showPasswordInput.checked ? 'text' : 'password'
 }
 
 
