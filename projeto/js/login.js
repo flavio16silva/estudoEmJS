@@ -1,8 +1,12 @@
 //Importações
-import app from './firebase-config'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import app from './firebase-config.js'
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 
+
+//Inicializando o Firebase
+// const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
+
 const formLogin = document.querySelector('#loginForm')
 
 if(formLogin){
@@ -14,7 +18,7 @@ if(formLogin){
         const formPass = document.querySelector('#floatingInputPass')
 
         //Autenticar no Firebase
-        signInWithEmailAndPassword(auth, email, password)
+        signInWithEmailAndPassword(auth, formEmail.value, formPass.value)
             .then((userCredential) => {
                 //Login correto
                 const user = userCredential.user
