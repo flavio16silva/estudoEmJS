@@ -1,5 +1,6 @@
 //Importações
-import app from './firebase-config'
+import app from './firebase-config.js'
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'
 
 //Dados Iniciais
 const form = document.querySelector('#form')
@@ -48,7 +49,7 @@ form.addEventListener('submit', (event) => {
     
     
     //Todos os campos preenchidos, envia o form
-    form.submit()
+    userRegister()
 })
 
 //verifica/mostra a senha digitada
@@ -107,6 +108,32 @@ function validApartamento(apInput, e) {
 //Função do mostrar senha
 function handleShowPassword(){
     passInput.type = showPasswordInput.checked ? 'text' : 'password'
+}
+
+// ------- Firebase - cadastro de usuario  -------
+function userRegister(){
+    const auth = getAuth(app) //autenticação do Firebase
+
+    //Dados do formulário
+    const formEmail = emailInput.value
+    const formPassword = passInput.value
+
+    //Criando o usuario
+    createUserWithEmailAndPassword(auth, formEmail, formPassword)
+        .then((userCredential) => { //objeto contém informações sobre o usuário recém-criado.
+            const user = userCredential.user
+            console.log('usuario cadastrado: ', user)
+            console.log('Detalhes do usuario: ', userCredential)
+
+            setTimeout(() => {
+                //Direciona para a pagina de Login
+                window.location.href = 'login.html'                
+            }, 1000);
+        })
+        .catch((error) => {
+            console.error('Erro ao fazer cadastro: ', error.message)
+            alert('Erro ao cadastrar usuário. Tente novamente!')
+        })
 }
 
 
