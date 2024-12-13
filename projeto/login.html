@@ -38,6 +38,11 @@
         </form>
     </main>
 
-    <script src="js/login.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+    </script>
+ 
 </body>
 </html>
