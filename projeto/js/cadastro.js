@@ -1,3 +1,6 @@
+//Importações
+import app from './firebase-config'
+
 //Dados Iniciais
 const form = document.querySelector('#form')
 const nameInput = document.querySelector('#nome')

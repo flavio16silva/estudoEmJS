@@ -1,3 +1,6 @@
+//Importações
+import app from './firebase-config'
+
 let array = [10, 13, 15, 22, 30, 44, 50, 11]
 //let string = array.toString()
 //console.log(array)
