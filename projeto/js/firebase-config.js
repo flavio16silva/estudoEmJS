@@ -1,7 +1,7 @@
 // firebase-config.js
 import { initializeApp } from "firebase/app";
 
-// Sua configuração do Firebase
+// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBUBpOHK7rTVj7V5KxH0m8ApA9wxRMxoyk",
   authDomain: "edificio-back01.firebaseapp.com",
