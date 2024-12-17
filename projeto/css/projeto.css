@@ -277,21 +277,12 @@ main {
     border-radius: 5px;
 }
 
-/* formulario */
-/* form {
-    max-width: 450px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 500px;
-    margin: 0 auto;
-} */
-
 label {
     font-weight: bold;
     margin-bottom: 3px;
 }
 
+/* Data, Hora */
 .tempo {
     display: flex;
     flex-wrap: wrap;
@@ -320,6 +311,7 @@ label {
     width: 30%;   
 }
 
+/* Assinatura */
 .signature-container {
     display: flex;
     flex-direction: column;
@@ -345,6 +337,49 @@ label {
 }
 
 /* media */
+@media (min-width: 768px){
+    .tempo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tempo label,
+    .tempo input {
+        width: auto;
+    }
+    #data, #horasI, #horasT {
+        flex: 1;   
+    }
+
+}
+
+@media (max-width: 767px){
+    .tempo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .tempo label,
+    .tempo input {
+        width:100%;
+        text-align: center;
+        margin-top: -10px;
+        padding: 0 10px;
+               
+    }    
+
+    .tempo input {
+        font-size: 13px; 
+    }
+ 
+}
+
+
+
+
+
 @media (max-width: 425px){
  .form-floating .form-control{
     font-size: 13px;
