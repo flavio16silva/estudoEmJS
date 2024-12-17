@@ -292,6 +292,34 @@ label {
     margin-bottom: 3px;
 }
 
+.tempo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.tempo label {
+    width: auto;
+    margin-right: -5px;
+    margin-left: -1px;
+    text-align:justify;
+}
+
+.tempo input {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    
+}
+
+#data, #horasI, #horasT{
+    width: 30%;   
+}
+
 .signature-container {
     display: flex;
     flex-direction: column;
