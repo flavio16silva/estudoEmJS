@@ -11,6 +11,8 @@ html, body {
     padding: 1rem;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-container {
@@ -73,6 +75,28 @@ button {
     font-size: 1.1rem;
     cursor: pointer;
 }
+
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+footer a {
+    color: #0077b5; 
+    text-decoration: none;
+    /* margin-left: -50px; */
+}
+
+footer a:hover {
+    color: #005582; 
+}
+
+footer a i{
+    margin-left: -10px;
+}
+
 
 /* media */
 @media (max-width: 425px){
