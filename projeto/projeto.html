@@ -16,96 +16,75 @@
 <body class="d-flex align-itens-center bg-dark">
 
         <main class="w-100 m-auto form-container">
-            <h1 class="text-white fs-2">Edifício Commit</h1>   
+                <h1 class="text-white fs-2">Edifício Commit</h1>   
             
-            <form action="" id="form">
-                <div class="form-floating mb-3">
-                    <input type="text" name="ata" id="ata" class="form-control" placeholder="Titulo da Ata">
-                    <label for="ata">Titulo da Ata</label>
-                </div>    
+                <form action="" id="form">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="ata" id="ata" class="form-control" placeholder="Titulo da Ata">
+                        <label for="ata">Titulo da Ata</label>
+                    </div>    
 
-                <div class="tempo mb-3">
-                    <label for="data" class="text-white">Data</label>
-                    <input type="date" name="data" id="data" required/>
-        
-                    <label for="horasI" class="text-white">Inicio</label>
-                    <input type="time" name="horasI" id="horasI" required/>
-        
-                    <label for="horasT" class="text-white">Término</label>
-                    <input type="time" name="horasT" id="horasT" required/>
-                </div>
-    
-                <div class="form-floating mb-3">
-                    <input type="local" name="local" id="local" class="form-control" placeholder="Local">
-                    <label for="local">Local</label>
-                </div>
-
-                <h3 class="text-white fs-5">Participantes</h3>
-                <div class="form-floating mb-3">
-                    <input type="text" name="presidente" id="presidente" class="form-control" placeholder="Presidente da Reunião">
-                    <label for="presidente">Presidente da Reunião</label>
-                </div>  
-                
-                <div class="form-floating mb-3">
-                    <input type="text" name="secretario" id="secretario" class="form-control" placeholder="Secretário" >
-                    <label for="secretario">Secretário</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" name="participantes" id="participantes" class="form-control" placeholder="Participantes">
-                    <label for="participantes">Lista de Participantes</label>
-                </div>    
-
-                <h3 class="text-white fs-5">Ordem do Dia</h3>
-                <div class="form-floating mb-3">
-                    <input type="text" name="pauta" id="pauta" class="form-control" placeholder="Pauta" >
-                    <label for="pauta">Pauta</label>
-                </div>   
-                
-                <h3 class="text-white fs-5">Discussões e Decisões</h3>
-                <div class="form-floating mb-3">
-                    <input type="text" name="discussoes" id="discussoes" class="form-control" placeholder="Discussões" >   
-                    <label for="discussoes" >Resumo das Discussões</label>
-                </div>  
-                
-                <h3 class="text-white fs-5">Observações</h3>
-                <div class="form-floating mb-3">
-                    <input type="text" name="observacoes" id="observacoes" class="form-control" placeholder="observacoes" > 
-                    <label for="observacoes">Anotações adicionais</label>
-                </div>
-
-                <h3 class="text-white fs-5">Assinaturas</h3>
-                <div class="signature-container mt-2">
-                    <!-- <label for="signature-pad" >Assinaturas:</label> -->                   
-                    <canvas id="signature-pad" style="border: 1px solid #fff;"></canvas>
-                </div>
-
-                <div class="button-row d-flex justify-content-center gap-4 mt-3">
-                    <button type="button" id="clear-signature" class="btn btn-success">Limpar Assinatura</button>
-                    <button type="submit" class="btn btn-success" >Salvar Ata</button>
-                </div>
-                
-                
-                
-                <!-- <div class="form-floating mb-3 d-flex justify-content-center gap-4">
-                    <label class="text-white">Tipo de Usuário</label>
-                    <div>
-                        <input type="radio" id="morador" name="tipo" value="morador" checked>
-                        <label for="morador" class="text-white">Síndico</label>
+                    <div class="tempo mb-3">
+                        <label for="data" class="text-white">Data</label>
+                        <input type="date" name="data" id="data" required/>
+            
+                        <label for="horasI" class="text-white">Inicio</label>
+                        <input type="time" name="horasI" id="horasI" required/>
+            
+                        <label for="horasT" class="text-white">Término</label>
+                        <input type="time" name="horasT" id="horasT" required/>
                     </div>
-                    <div>
-                        <input type="radio" id="sindico" name="tipo" value="sindico">
-                        <label for="sindico" class="text-white">Morador</label>
+        
+                    <div class="form-floating mb-3">
+                        <input type="local" name="local" id="local" class="form-control" placeholder="Local">
+                        <label for="local">Local</label>
                     </div>
-                </div> -->
-                
-                <!-- <input type="number" name="ap" id="ap" > -->
-    
-    
-                <!-- <button class="btn btn-success w-100 py-2 " type="submit">Enviar</button> -->
-    
-    
-            </form>
+
+                    <h3 class="text-white fs-5">Participantes</h3>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="presidente" id="presidente" class="form-control" placeholder="Presidente da Reunião">
+                        <label for="presidente">Presidente da Reunião</label>
+                    </div>  
+                    
+                    <div class="form-floating mb-3">
+                        <input type="text" name="secretario" id="secretario" class="form-control" placeholder="Secretário" >
+                        <label for="secretario">Secretário</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" name="participantes" id="participantes" class="form-control" placeholder="Participantes">
+                        <label for="participantes">Lista de Participantes</label>
+                    </div>    
+
+                    <h3 class="text-white fs-5">Ordem do Dia</h3>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="pauta" id="pauta" class="form-control" placeholder="Pauta" >
+                        <label for="pauta">Pauta</label>
+                    </div>   
+                    
+                    <h3 class="text-white fs-5">Discussões e Decisões</h3>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="discussoes" id="discussoes" class="form-control" placeholder="Discussões" >   
+                        <label for="discussoes" >Resumo das Discussões</label>
+                    </div>  
+                    
+                    <h3 class="text-white fs-5">Observações</h3>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="observacoes" id="observacoes" class="form-control" placeholder="observacoes" > 
+                        <label for="observacoes">Anotações adicionais</label>
+                    </div>
+
+                    <h3 class="text-white fs-5">Assinaturas</h3>
+                    <div class="signature-container mt-2">
+                        <!-- <label for="signature-pad" >Assinaturas:</label> -->                   
+                        <canvas id="signature-pad" style="border: 1px solid #fff;"></canvas>
+                    </div>
+
+                    <div class="button-row d-flex justify-content-center gap-4 mt-3">
+                        <button type="button" id="clear-signature" class="btn btn-success">Limpar Assinatura</button>
+                        <button type="submit" class="btn btn-success" >Salvar Ata</button>
+                    </div> 
+                </form>
         </main>
 
         <footer>
