@@ -13,6 +13,31 @@ const discussoesInput = document.querySelector('#discussoes')
 const obsInput = document.querySelector('#observacoes')
 const assinaInput = document.querySelector('#signature-pad')
 
+
+// --------- Assinatura no Canvas -----------
+let signaturePad
+
+document.addEventListener('DOMContentLoaded', () => {
+const canvas = document.querySelector('#signature-pad')
+signaturePad = new SignaturePad(canvas, {
+        //Personalização
+        penColor: 'black',
+        minWidth: 1,
+        maxWidth: 5,
+    }) 
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const limparBotao = document.querySelector('#clear-signature')
+    limparBotao.addEventListener('click', limparAssinatura)
+})
+
+
+//Limpar campos
+function clearErrors() {
+    document.querySelectorAll('.text-danger').forEach((error) => error.remove());
+}
+
 //Eventos
 horasI.addEventListener('input', validHorasInput)
 horasT.addEventListener('input', validHorasInput)
@@ -85,8 +110,13 @@ form.addEventListener('submit', (event) => {
         hasError = true   //indica erro
     }
 
+    if(!validAssinatura()){
+        hasError = true
+    }
+
     if(hasError) return  //impede envio de erros  
 
+    //console.log('Assinatura válida:', signaturePad.toDataURL())
     form.submit()        //submete o form
 })
 
@@ -97,8 +127,8 @@ function validHorasInput(){
             showError(horasT, 'A hora final deve ser posterior à hora inicial')
             return false
         }       
+        return true
     }
-    return true
 }
 
 //Exibir erro
@@ -114,7 +144,36 @@ function showError(input, message) {
     parent.appendChild(errorElement)
 }
 
-//Limpar campos
-function clearErrors() {
-    document.querySelectorAll('.text-danger').forEach((error) => error.remove());
+//Validando se assinatura foi feita
+function validAssinatura(){
+    const parent = assinaInput.closest('.form-floating') || assinaInput.parentElement 
+
+    parent.querySelectorAll('.text-danger').forEach(error => error.remove())
+
+    if (signaturePad.isEmpty()) {
+    const errorElement = document.createElement('small')
+    errorElement.className = 'text-danger d-block mt-1'
+    errorElement.innerText = 'Por favor assine o documento'
+    
+    parent.appendChild(errorElement)
+        return false       
+    }
+        return true
 }
+
+
+//Limpar assinatura
+
+
+
+function limparAssinatura(){
+    if(signaturePad){
+        signaturePad.clear()
+    } else {
+        console.error('Signature não definido')
+    }
+   
+}
+
+
+
