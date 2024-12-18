@@ -22,8 +22,10 @@ const canvas = document.querySelector('#signature-pad')
 signaturePad = new SignaturePad(canvas, {
         //Personalização
         penColor: 'black',
-        minWidth: 1,
-        maxWidth: 5,
+        minWidth: 0.5,
+        maxWidth: 3,
+        velocityFilterWeight: 0.3,
+        throttle: 10,
     }) 
 })
 
