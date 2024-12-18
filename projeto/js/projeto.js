@@ -13,15 +13,18 @@ const discussoesInput = document.querySelector('#discussoes')
 const obsInput = document.querySelector('#observacoes')
 const assinaInput = document.querySelector('#signature-pad')
 
+//Eventos
+horasI.addEventListener('input', validHorasInput)
+horasT.addEventListener('input', validHorasInput)
+
 //Função
-const errors = []
-
 form.addEventListener('submit', (event) => {
-    event.preventDefault()
-    clearErrors()
-
-    let hasError = false
-
+    event.preventDefault() //impede envio imediato
+    clearErrors()          //remove erros anteriores
+    
+    let hasError = false    //rastrear erros
+    
+    //trim() - Remove espaços em branco no início e no final do valor   
     if (ataInput.value.trim() === ''){
         showError(ataInput, 'Preencha o título da Ata')
         hasError = true
@@ -41,36 +44,61 @@ form.addEventListener('submit', (event) => {
         showError(horasT, 'Preencha o horário final')
         hasError = true
     }
-   
 
-    // if(horasT.value <= horasI.value){
-    //     event.preventDefault()
-    //     alert('A hora de início deve ser anterior à hora de término')
-    // }
+    if (localInput.value.trim() === ''){
+        showError(localInput, 'Preencha com o local')
+        hasError = true
+    } 
 
-    if(hasError) return
+    if (presidInput.value.trim() === ''){
+        showError(presidInput, 'Preencha o nome do Presidente')
+        hasError = true
+    } 
 
-    //const errors = [];
-    //trim() - Remove espaços em branco no início e no final do valor 
-    // if (dataInput.value.trim() === '') errors.push('Preencha a data da Ata');
-    // if (horasI.value.trim() === '') errors.push('Preencha o horário de início');
-    // if (horasT.value.trim() === '') errors.push('Preencha o horário de término');
-    // if (localInput.value.trim() === '') errors.push('Preencha o local da reunião');
-    // if (presidInput.value.trim() === '') errors.push('Preencha o nome do Presidente');
-    // if (secreInput.value.trim() === '') errors.push('Preencha o nome do Secretário');
-    // if (participaInput.value.trim() === '') errors.push('Preencha os Participantes');
-    // if (discussoesInput.value.trim() === '') errors.push('Preencha os relatos das Discussões');
-    // if (obsInput.value.trim() === '') errors.push('Preencha as Observações');
-
-    //Se houver erros - campo obrigatorio não preenchido
-    if (errors.length > 0) {
-        alert(errors.join('\n'));
-        return;
+    if (secreInput.value.trim() === ''){
+        showError(secreInput, 'Preencha o nome do Secretário')
+        hasError = true
     }
 
+    if(participaInput.value.trim() === ''){
+        showError(participaInput, 'Preencha os Participantes')
+        hasError = true
+    }
+
+    if(pautaInput.value.trim() === ''){
+        showError(pautaInput, 'Preencha com a pauta')
+        hasError = true
+    }
+
+    if (discussoesInput.value.trim() === '') {
+        showError(discussoesInput, 'Preencha os relatos das Discussões')
+        hasError = true
+    }
+
+    if (obsInput.value.trim() === '') {
+        showError(obsInput, 'Preencha as Observações')
+        hasError = true
+    }      
+
+    if(validHorasInput){
+        event.preventDefault()
+    }
+
+    if(hasError) return   
 
     form.submit()
 })
+
+//Validando preenchimento da hora
+function validHorasInput(){
+    clearErrors()
+
+    if(horasT.value && horasI.value){
+        if(horasT.value <= horasI.value){
+            showError(horasT, 'A hora final deve ser posterior à hora inicial')
+        }       
+    }
+}
 
 //Exibir erro
 function showError(input, message) {
@@ -89,3 +117,4 @@ function showError(input, message) {
 function clearErrors() {
     document.querySelectorAll('.text-danger').forEach((error) => error.remove());
 }
+
