@@ -24,6 +24,7 @@ form.addEventListener('submit', (event) => {
     
     let hasError = false    //rastrear erros
     
+    //Validações dos Inputs
     //trim() - Remove espaços em branco no início e no final do valor   
     if (ataInput.value.trim() === ''){
         showError(ataInput, 'Preencha o título da Ata')
