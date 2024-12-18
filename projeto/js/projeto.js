@@ -20,7 +20,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault()
     
     const errors = [];
-
+    //trim() - Remove espaços em branco no início e no final do valor 
     if (ataInput.value.trim() === '') errors.push('Preencha o título da Ata');
     if (dataInput.value.trim() === '') errors.push('Preencha a data da Ata');
     if (horasI.value.trim() === '') errors.push('Preencha o horário de início');
@@ -32,6 +32,7 @@ form.addEventListener('submit', (event) => {
     if (discussoesInput.value.trim() === '') errors.push('Preencha os relatos das Discussões');
     if (obsInput.value.trim() === '') errors.push('Preencha as Observações');
 
+    //Se houver erros - campo obrigatorio não preenchido
     if (errors.length > 0) {
         alert(errors.join('\n'));
         return;
