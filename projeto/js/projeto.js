@@ -92,13 +92,13 @@ form.addEventListener('submit', (event) => {
 
 //Validando preenchimento da hora
 function validHorasInput(){
-    clearErrors()
-
     if(horasT.value && horasI.value){
         if(horasT.value <= horasI.value){
             showError(horasT, 'A hora final deve ser posterior à hora inicial')
+            return false
         }       
     }
+    return true
 }
 
 //Exibir erro
@@ -118,4 +118,3 @@ function showError(input, message) {
 function clearErrors() {
     document.querySelectorAll('.text-danger').forEach((error) => error.remove());
 }
-
