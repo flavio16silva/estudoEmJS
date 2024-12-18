@@ -1,78 +1,41 @@
-//Importações
-import app from './firebase-config'
+//Dados Iniciais
+const form = document.querySelector('#form')
+const ataInput = document.querySelector('#ata')
+const dataInput = document.querySelector('#data')
+const horasI = document.querySelector('#horasI')
+const horasT = document.querySelector('#horasT')
+const localInput = document.querySelector('#local')
+const presidInput = document.querySelector('#presidente')
+const secreInput = document.querySelector('#secretario')
+const participaInput = document.querySelector('#participantes')
+const pautaInput = document.querySelector('#pauta')
+const discussoesInput = document.querySelector('#discussoes')
+const obsInput = document.querySelector('#observacoes')
+const assinaInput = document.querySelector('#signature-pad')
 
-let array = [10, 13, 15, 22, 30, 44, 50, 11]
-//let string = array.toString()
-//console.log(array)
+//Função
+const errors = []
 
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    
+    const errors = [];
 
-function sair(){
-     console.log('saiu do input...')
+    if (ataInput.value.trim() === '') errors.push('Preencha o título da Ata');
+    if (dataInput.value.trim() === '') errors.push('Preencha a data da Ata');
+    if (horasI.value.trim() === '') errors.push('Preencha o horário de início');
+    if (horasT.value.trim() === '') errors.push('Preencha o horário de término');
+    if (localInput.value.trim() === '') errors.push('Preencha o local da reunião');
+    if (presidInput.value.trim() === '') errors.push('Preencha o nome do Presidente');
+    if (secreInput.value.trim() === '') errors.push('Preencha o nome do Secretário');
+    if (participaInput.value.trim() === '') errors.push('Preencha os Participantes');
+    if (discussoesInput.value.trim() === '') errors.push('Preencha os relatos das Discussões');
+    if (obsInput.value.trim() === '') errors.push('Preencha as Observações');
+
+    if (errors.length > 0) {
+        alert(errors.join('\n'));
+        return;
     }
- let mouse = document.querySelector('.digitar')
- //mouse.addEventListener('mouseleave', sair)
 
-
-function clicar() {
-    let digitado = parseInt(document.querySelector('.digitar').value)
-    console.log(digitado)
-    
-
-    document.querySelector('.clicar').innerHTML = digitado //retorno na tela 
-    
-    if(isNaN(digitado)){
-        alert('digite um numero válido')
-        console.log('digite um numero válido')
-        return
-    }
-    
-    let valor = array.find(item => item === digitado)
-    
-    if(valor != undefined){
-        console.log('numero faz parte do array')
-        
-        if(valor % 2 === 0){
-            console.log('numero par')
-        } else {
-            console.log('número impar')
-        }
-    } else if (valor != array){ //adicionando numeros fora do array no array.
-        console.log('numero fora do array')
-        //array.push(digitado)
-        array.sort()
-        //console.log(array)        
-        let outroArray = [...array, digitado]
-        console.log(outroArray)
-        console.log(array)
-    }     
-}
-
-
-
-
-
-
-
-
-
-
-    /*    metodo include
-    if(array.includes(digitado)) {
-        console.log('Numero faz parte do array.')
-    
-      if (digitado % 2 == 0) {
-          console.log(`Numero ${digitado} é par.`) 
-      } else {
-          console.log(`Numero ${num} é impar.`)  
-      } 
-    
-    } else {
-        console.log('Numero fora do array') 
-    
-    }     
-    */
-
-
-
-
-
+    form.submit()
+})
