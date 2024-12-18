@@ -285,6 +285,12 @@ label {
     margin-bottom: 3px;
 }
 
+/* Foco dos inputs */
+input:focus {
+    outline: 3px solid #1c385e;
+    border-radius: 5px;
+}
+
 /* Data, Hora */
 .tempo {
     display: flex;
