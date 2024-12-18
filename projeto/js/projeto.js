@@ -28,7 +28,7 @@ form.addEventListener('submit', (event) => {
     //trim() - Remove espaços em branco no início e no final do valor   
     if (ataInput.value.trim() === ''){
         showError(ataInput, 'Preencha o título da Ata')
-        hasError = true
+        hasError = true         //indica que a erro
     } 
 
     if (dataInput.value.trim() === '') {
@@ -81,13 +81,13 @@ form.addEventListener('submit', (event) => {
         hasError = true
     }      
 
-    if(validHorasInput){
-        event.preventDefault()
+    if(!validHorasInput()){
+        hasError = true   //indica erro
     }
 
-    if(hasError) return   
+    if(hasError) return  //impede envio de erros  
 
-    form.submit()
+    form.submit()        //submete o form
 })
 
 //Validando preenchimento da hora
