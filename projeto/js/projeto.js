@@ -177,9 +177,6 @@ function validAssinatura(){
 
 
 //Limpar assinatura
-
-
-
 function limparAssinatura(){
     if(signaturePad){
         signaturePad.clear()
