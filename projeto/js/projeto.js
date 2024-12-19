@@ -1,5 +1,17 @@
-//Dados Iniciais
+//Importações
+import app from './firebase-config.js';
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js'
+
+//Inicializando Firebase
+const firedb = getFirestore(app)
+
+//Capturando form e os dados
 const form = document.querySelector('#form')
+form.addEventListener('submit', async (event) => {
+    
+})
+
+//Dados Iniciais
 const ataInput = document.querySelector('#ata')
 const dataInput = document.querySelector('#data')
 const horasI = document.querySelector('#horasI')
