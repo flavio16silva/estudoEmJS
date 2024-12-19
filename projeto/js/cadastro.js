@@ -1,6 +1,6 @@
 //Importações
 import app from './firebase-config.js'
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js';
 
 //Dados Iniciais
 const form = document.querySelector('#form')
