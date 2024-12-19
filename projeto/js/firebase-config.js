@@ -1,6 +1,7 @@
 // firebase-config.js
 //import { initializeApp } from "firebase/app";
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js'
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js'
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js'
 
 // Configuração do Firebase
 const firebaseConfig = {
@@ -14,6 +15,10 @@ const firebaseConfig = {
 };
 
 // Inicializando o Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig)
+
+// Inicializando o Firestone
+const db = getFirestore(app)
+//console.log("Firestore inicializado com sucesso!", db)
 
 export default app;
