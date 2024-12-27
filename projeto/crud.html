@@ -19,8 +19,33 @@
 
     <main>
         <form action="">
+            <div class="form-floating mb-3">
+                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo">
+                <label for="nome">Nome Completo</label>
+            </div>    
 
+            <div class="form-floating mb-3">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <label for="email">Email</label>
+            </div>
+
+            <button class="btn btn-success w-100 py-2 " type="submit">Salvar</button>
         </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>AP</th>
+                    <th>Senha</th>
+                </tr>
+            </thead>
+            <tbody id="user-table">
+                
+            </tbody>
+        </table>
     </main>
 </body>
 </html>
