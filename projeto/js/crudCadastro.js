@@ -77,7 +77,7 @@ function insertItem(item, index) {
     <td>${item.email}</td>
     <td>${item.telefone}</td>
     <td>${item.ap}</td>
-    <td>${item.senha}</td>
+    <td>*******</td>
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' style='color:#fdfafa'></i></button>
     </td>
@@ -86,6 +86,11 @@ function insertItem(item, index) {
     </td>
   `
   tbody.appendChild(tr)
+}
+
+//Função do mostrar senha
+function handleShowPassword(){
+    modalSenha.type = showPasswordInput.checked ? 'text' : 'password'
 }
 
 //Botao de Salvar
