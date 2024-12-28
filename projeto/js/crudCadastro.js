@@ -1,3 +1,4 @@
+//Dados Iniciais
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('#tbody')
 const modalNome = document.querySelector('#m-nome')
@@ -6,10 +7,27 @@ const modalTelefone = document.querySelector('#m-fone')
 const modalAP = document.querySelector('#m-ap')
 const modalSenha = document.querySelector('#m-pass')
 const btnSalvar = document.querySelector('#btnSalvar')
+const searchInput = document.querySelector('#searchInput')
 
 let itens
 let id
 
+// -------- Funções ---------------
+//Pesquisar nome
+searchInput.addEventListener('input', function() {
+    const searchValue = searchInput.value.toLowerCase()
+    const rows = tbody.getElementsByTagName('tr')
+
+    //Varrer a tabela
+    for(const row of rows){
+        const nomeCelula = row.getElementsByTagName('td')[0]
+        if(nomeCelula){
+            const nomeTexto = nomeCelula.textContent.toLowerCase()
+            row.style.display = nomeTexto.includes(searchValue) ? '' : 'none'
+        }
+    }
+})
+//Abrir Modal
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
 
@@ -37,17 +55,20 @@ function openModal(edit = false, index = 0) {
   
 }
 
+// Editar Modal
 function editItem(index) {
 
   openModal(true, index)
 }
 
+//Deletar Modal
 function deleteItem(index) {
   itens.splice(index, 1)
   setItensBD()
   loadItens()
 }
 
+//Inserir Modal
 function insertItem(item, index) {
   let tr = document.createElement('tr')
 
@@ -67,6 +88,7 @@ function insertItem(item, index) {
   tbody.appendChild(tr)
 }
 
+//Botao de Salvar
 btnSalvar.onclick = e => {
   
   if (modalNome.value == '' || modalEmail.value == '' || modalTelefone.value == ''  || modalAP.value == '' || modalSenha.value == '') {
@@ -92,6 +114,7 @@ btnSalvar.onclick = e => {
   loadItens()
   id = undefined
 }
+
 
 function loadItens() {
   itens = getItensBD()
