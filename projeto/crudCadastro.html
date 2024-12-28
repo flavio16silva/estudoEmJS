@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Moradores</title>
+  <link rel="stylesheet" href="css/crudCadastro.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Moradores</span>
+      <button onclick="openModal()" id="new">Adicionar</i></button>
+    </div>
+
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th class="colFone">Telefone</th>
+            <th class="colAP">AP</th>
+            <th class="colSenha">Senha</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+  
+          <label for="m-email">Email</label>
+          <input id="m-email" type="text" required />
+  
+          <label for="m-fone">Telefone</label>
+          <input id="m-fone" type="number" required />
+
+          <label for="m-ap">AP</label>
+          <input id="m-ap" type="text" required />
+
+          <label for="m-pass">Senha</label>
+          <input id="m-pass" type="text" required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/crudCadastro.js"></script>
+</body>
+
+</html>
