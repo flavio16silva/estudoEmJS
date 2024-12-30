@@ -8,6 +8,15 @@ import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/fir
 const auth = getAuth(app)
 
 const formLogin = document.querySelector('#loginForm')
+const checkbox = document.querySelector('#flexCheckDefault')
+
+if(checkbox){
+    checkbox.addEventListener('change', () => {
+        if(checkbox.checked){
+            window.location.href = 'cadastro.html'
+        }
+    })
+}
 
 if(formLogin){
     formLogin.addEventListener('submit', (e)=> {
@@ -31,4 +40,5 @@ if(formLogin){
                 console.error('Erro ao fazer login: ', error)
             })       
     })
-}
+} 
+
