@@ -38,6 +38,7 @@ if(formLogin){
             })
             .catch((error) => {
                 console.error('Erro ao fazer login: ', error)
+                alert('Fazer cadastro ou preencher os campos')
             })       
     })
 } 
