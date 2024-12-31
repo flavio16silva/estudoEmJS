@@ -20,6 +20,18 @@ const discussoesInput = document.querySelector('#discussoes')
 const obsInput = document.querySelector('#observacoes')
 const assinaInput = document.querySelector('#signature-pad')
 
+// Funções utilitárias
+function formatDateBR(date) {
+    const dia = String(date.getDate()).padStart(2, '0');
+    const mes = String(date.getMonth() + 1).padStart(2, '0'); // Meses começam em 0
+    const ano = date.getFullYear();
+    const horas = String(date.getHours()).padStart(2, '0');
+    const minutos = String(date.getMinutes()).padStart(2, '0');
+    const segundos = String(date.getSeconds()).padStart(2, '0');
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+}
+
+
 //Capturando form e os dados
 const form = document.querySelector('#form')
 form.addEventListener('submit', async (event) => {
@@ -109,7 +121,7 @@ form.addEventListener('submit', async (event) => {
         discussoes: discussoesInput.value.trim(),
         observacoes: obsInput.value.trim(),
         assinatura: signaturePad.toDataURL(), //base64
-        criadoEm: new Date().toISOString()    //data do envio
+        criadoEm: formatDateBR(new Date())    //data do envio
     }
         //enviado ao Firebase
         try{
