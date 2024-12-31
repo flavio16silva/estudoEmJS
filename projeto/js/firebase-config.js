@@ -21,4 +21,6 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 //console.log("Firestore inicializado com sucesso!", db)
 
-export default app;
+// Exportando app e db
+export { app, db }
+//export default app;
