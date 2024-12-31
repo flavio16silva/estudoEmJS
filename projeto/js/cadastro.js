@@ -1,6 +1,7 @@
 //Importações
-import app from './firebase-config.js'
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js';
+import {app} from './firebase-config.js'
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js'
+import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js'
 
 //Dados Iniciais
 const form = document.querySelector('#form')
@@ -113,10 +114,15 @@ function handleShowPassword(){
 // ------- Firebase - cadastro de usuario  -------
 function userRegister(){
     const auth = getAuth(app) //autenticação do Firebase
+    const db = getFirestore(app) //iniciando Firestone
 
     //Dados do formulário
     const formEmail = emailInput.value
     const formPassword = passInput.value
+    const formNome = nameInput.value
+    const formTelefone = telefoneInput.value
+    const formApartamento = apInput.value
+
 
     //Criando o usuario
     createUserWithEmailAndPassword(auth, formEmail, formPassword)
@@ -125,13 +131,27 @@ function userRegister(){
             console.log('usuario cadastrado: ', user)
             console.log('Detalhes do usuario: ', userCredential)
 
-            setTimeout(() => {
+            // Adiciona um log para verificar se o UID está correto
+            console.log('UID do usuário:', user.uid)
+
+            //Salvar os dados do usuario na coleção
+            return addDoc(collection(db, 'moradores'), {
+                uid: user.uid,
+                nome: formNome,
+                email: formEmail,
+                telefone: formTelefone,
+                apartamento: formApartamento,
+                criadoEm: new Date() //Data de criação
+            })
+        })
+        //console.log('Dados do usuário salvos no Firestore!')
+        .then(() => {            
                 //Direciona para a pagina de Login
-                window.location.href = 'login.html'                
-            }, 1000);
+                window.location.href = 'login.html'              
+            
         })
         .catch((error) => {
-            console.error('Erro ao fazer cadastro: ', error.message)
+            console.error('Erro ao fazer cadastro ou salvar dados no Firestone: ', error.message)
             alert('Erro ao cadastrar usuário. Tente novamente!')
         })
 }
