@@ -140,7 +140,8 @@ function userRegister(){
                 nome: formNome,
                 email: formEmail,
                 telefone: formTelefone,
-                apartamento: formApartamento,
+                ap: formApartamento,
+                senha:formPassword,
                 criadoEm: new Date() //Data de criação
             })
         })
