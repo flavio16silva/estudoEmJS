@@ -12,6 +12,7 @@
  - Criar tela de circular interna 
 
 Estrutura:
+
 ▶️ Front-End:
 📌 HTML / CSS / JavaScript
 📌Firebase Firestore - Banco de dados NoSQL para armazenamento de dados. A comunicação entre o front-end e o Firestore acontece por meio das funções addDoc, onSnapshot, updateDoc, e deleteDoc
