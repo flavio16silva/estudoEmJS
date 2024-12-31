@@ -121,10 +121,11 @@ thead tr th {
 tbody tr {
   margin-bottom: 50px;
   color: #fff;
+  font-size: 14px;
 }
 
 .colFone {
-  width: 13%;
+  width: 18%;
 }
 
 .colAP {
@@ -174,6 +175,10 @@ tbody tr td.acao {
 
   .modal label {
     font-size: 12px!important;
+  }
+
+  tbody tr {
+    font-size:8px;
   }
 }
 
