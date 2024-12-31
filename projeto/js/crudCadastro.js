@@ -1,3 +1,8 @@
+//Importações
+import { onSnapshot ,collection, addDoc, updateDoc, deleteDoc, doc } from 'https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js'
+import { db } from './firebase-config.js'
+
+
 //Dados Iniciais
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('#tbody')
@@ -9,26 +14,55 @@ const modalSenha = document.querySelector('#m-pass')
 const btnSalvar = document.querySelector('#btnSalvar')
 const searchInput = document.querySelector('#searchInput')
 
+
+//Adicionando evento no botão - Adicionar
+document.querySelector('#new').addEventListener('click', () => openModal())
+
 let itens
 let id
 
 // -------- Funções ---------------
+
 //Pesquisar nome
 searchInput.addEventListener('input', function() {
-    const searchValue = searchInput.value.toLowerCase()
+  const searchValue = searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     const rows = tbody.getElementsByTagName('tr')
 
     //Varrer a tabela
     for(const row of rows){
         const nomeCelula = row.getElementsByTagName('td')[0]
         if(nomeCelula){
-            const nomeTexto = nomeCelula.textContent.toLowerCase()
+          const nomeTexto = nomeCelula.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
             row.style.display = nomeTexto.includes(searchValue) ? '' : 'none'
         }
     }
 })
+
+//Mascara de telefone - edição e inserção
+function mascaraTelefone(telefone){
+  telefone = telefone.replace(/\D/g, '')
+
+  if(telefone.length > 11){
+    telefone = telefone.slice(0, 11)
+  }
+
+  if (telefone.length <= 2) {
+    telefone = telefone.replace(/^(\d{2})/, '($1) ') 
+  } else if (telefone.length <= 7) {
+    telefone = telefone.replace(/^(\d{2})(\d{5})/, '($1) $2-') 
+  } else {
+    telefone = telefone.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3') 
+  }
+  return telefone
+}
+
+//Formatação da mascara ao digitar
+modalTelefone.addEventListener('input', function() {
+  modalTelefone.value = mascaraTelefone(modalTelefone.value)
+})
+
 //Abrir Modal
-function openModal(edit = false, index = 0) {
+window.openModal = function (edit = false, index = 0) {
   modal.classList.add('active')
 
   modal.onclick = e => {
@@ -40,36 +74,42 @@ function openModal(edit = false, index = 0) {
   if (edit) {
     modalNome.value = itens[index].nome
     modalEmail.value = itens[index].email
-    modalTelefone.value = itens[index].telefone 
+    modalTelefone.value = mascaraTelefone(itens[index].telefone)  
     modalAP.value = itens[index].ap
     modalSenha.value = itens[index].senha
     id = index
+  
   } else {
     modalNome.value = ''
     modalEmail.value = ''
     modalTelefone.value = ''
     modalAP.value = ''
     modalSenha.value = ''
-
+   
   }
   
 }
 
-// Editar Modal
-function editItem(index) {
 
+
+// Editar Modal
+window.editItem = function(index) {
+    id = index
   openModal(true, index)
 }
 
 //Deletar Modal
-function deleteItem(index) {
-  itens.splice(index, 1)
-  setItensBD()
+async function deleteItem(index) {
+  const itemDoc = doc(db, 'moradores', itens[index].id)
+  await deleteDoc(itemDoc)
+  // itens.splice(index, 1)
+  // setItensBD()
   loadItens()
 }
 
 //Inserir Modal
 function insertItem(item, index) {
+  console.log(item)
   let tr = document.createElement('tr')
 
   tr.innerHTML = `
@@ -82,11 +122,19 @@ function insertItem(item, index) {
       <button onclick="editItem(${index})"><i class='bx bx-edit' style='color:#fdfafa'></i></button>
     </td>
     <td class="acao">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash' style='color:#fdfafa'></i></button>
+      <button class="deleteItem"><i class='bx bx-trash' style='color:#fdfafa'></i></button>
     </td>
   `
+
+  //Clique para deletar
+  tr.querySelector('.deleteItem').addEventListener('click', function () {
+    deleteItem(index)
+  })
+
   tbody.appendChild(tr)
 }
+
+
 
 //Função do mostrar senha
 function handleShowPassword(){
@@ -94,26 +142,38 @@ function handleShowPassword(){
 }
 
 //Botao de Salvar
-btnSalvar.onclick = e => {
+btnSalvar.onclick = async (e) => {
   
-  if (modalNome.value == '' || modalEmail.value == '' || modalTelefone.value == ''  || modalAP.value == '' || modalSenha.value == '') {
+  if (modalNome.value == '' || modalEmail.value == '' || modalTelefone.value == ''  
+      || modalAP.value == '' || modalSenha.value == '') {
     return
   }
 
-  e.preventDefault();
+  e.preventDefault()
 
-  if (id !== undefined) {
-    itens[id].nome = modalNome.value
-    itens[id].email = modalEmail.value
-    itens[id].telefone = modalTelefone.value
-    itens[id].ap = modalAP.value
-    itens[id].senha = modalSenha.value
-  } else {
-    itens.push({'nome': modalNome.value, 'email': modalEmail.value, 
-        'telefone': modalTelefone.value, 'ap': modalAP.value, 'senha': modalSenha.value})
+  const novoItem = {
+    nome: modalNome.value,
+    email: modalEmail.value,
+    telefone: modalTelefone.value,
+    ap: modalAP.value,
+    senha: modalSenha.value
   }
 
-  setItensBD()
+  if (id !== undefined) {
+    const itemDoc = doc(db, 'moradores', itens[id].id)
+    await updateDoc(itemDoc, novoItem)
+    // itens[id].nome = modalNome.value
+    // itens[id].email = modalEmail.value
+    // itens[id].telefone = modalTelefone.value
+    // itens[id].ap = modalAP.value
+    // itens[id].senha = modalSenha.value
+  } else {
+    // itens.push({'nome': modalNome.value, 'email': modalEmail.value, 
+    //     'telefone': modalTelefone.value, 'ap': modalAP.value, 'senha': modalSenha.value})
+    await addDoc(collection(db, 'moradores'), novoItem)
+  }
+
+  //setItensBD()
 
   modal.classList.remove('active')
   loadItens()
@@ -121,16 +181,29 @@ btnSalvar.onclick = e => {
 }
 
 
+//Buscar morador no Firebase
 function loadItens() {
-  itens = getItensBD()
-  tbody.innerHTML = ''
-  itens.forEach((item, index) => {
-    insertItem(item, index)
+  onSnapshot(collection(db, "moradores"), (querySnapshot) => {
+  itens = []
+ // Percorrendo os documentos na coleção e atualizando o array 'itens'
+  querySnapshot.forEach((doc) => {
+    const data = doc.data()
+    itens.push({
+      id: doc.id,
+      nome: data.nome,
+      email: data.email,
+      telefone: data.telefone,
+      ap: data.ap,
+      senha: data.senha
+    })    
   })
-
+    tbody.innerHTML = ''
+    itens.forEach((item, index) => {
+      insertItem(item, index)
+    })
+  })
 }
 
-const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
-const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
+
 
 loadItens()
