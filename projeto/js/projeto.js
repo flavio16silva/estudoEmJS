@@ -1,5 +1,5 @@
 //Importações
-import app from './firebase-config.js'
+import {app} from './firebase-config.js'
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
 
 //Inicializando Firebase
