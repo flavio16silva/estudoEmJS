@@ -8,6 +8,8 @@
   <title>Cadastro de Moradores</title>
   <link rel="stylesheet" href="css/crudCadastro.css">
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+  
 </head>
 
 <body>
@@ -16,7 +18,7 @@
       <span>Cadastro de Moradores</span>   
         <div class="header-search">
           <input type="text" id="searchInput" placeholder="Digite um nome...">   
-          <button onclick="openModal()" id="new">Adicionar</i></button>
+          <button id="new">Adicionar</i></button>
         </div> 
     </div>
 
@@ -48,7 +50,7 @@
           <input id="m-email" type="text" required />
   
           <label for="m-fone">Telefone</label>
-          <input id="m-fone" type="number" required />
+          <input id="m-fone" maxlength="15" type="text" required />
 
           <label for="m-ap">AP</label>
           <input id="m-ap" type="text" required />
@@ -61,7 +63,7 @@
     </div>
 
   </div>
-  <script src="js/crudCadastro.js"></script>
+  <script type="module" src="js/crudCadastro.js" defer></script>
 </body>
 
 </html>
