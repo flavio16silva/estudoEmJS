@@ -9,6 +9,8 @@ Desktop.ini
 node_modules/
 vendor/
 
+# Ignore o arquivo
+projeto/js/firebase-config.js
 .env
 .vscode/
 
